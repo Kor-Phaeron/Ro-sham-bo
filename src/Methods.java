@@ -1,6 +1,8 @@
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
+import java.sql.ResultSet;
 
 public class Methods {
     static int winsCount = 1;
@@ -127,17 +129,34 @@ public class Methods {
         }
     }
 
-    public static void showHighscores(){
+    public static void getHighscores(){
             Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
 
             Connection connection = obj_HighscoresDatabase.getConnection();
 
-            try {
-                String query = "SHOW ALL";
-                Statement statement = connection.createStatement();
-                statement.executeUpdate(query);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        String SQL = "SELECT name, games_played, wins, looses FROM highscores";
+        System.out.println("Player" + "\t"
+                + "  Games" + "\t"
+                + "   Wins" + "\t"
+                + "  Looses");
+
+        try (
+             Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(SQL)) {
+            // display highscores information
+            displayHighscores(rs);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static void displayHighscores(ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            System.out.println(rs.getString("name") + "\t" + "\t"
+                    + rs.getString("games_played") + "\t" + "\t"
+                    + rs.getString("wins") + "\t" + "\t"
+                    + rs.getString("looses"));
+
+        }
     }
 }

@@ -134,7 +134,7 @@ public class Game {
                                 Methods.changeTotalWins();
                                 break MainMenu;
                             case (State.SHOW_HIGHSCORES):
-                                Methods.showHighscores();
+                                Methods.getHighscores();
                             case (State.SETTINGS_EXIT):
                                 break MainMenu;
                             default:
