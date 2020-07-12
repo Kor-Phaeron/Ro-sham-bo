@@ -49,21 +49,29 @@ public class Methods {
     }
 
     public static void newPlayer(String name){
-        Connection connection = null;
-
-        Statement statement = null;
 
         Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
 
-        connection = obj_HighscoresDatabase.getConnection();
-
+        Connection connection = obj_HighscoresDatabase.getConnection();
 
         try {
-
             String query = "Insert into Highscores (name) values ('"+Methods.userName+"')";
-            statement = connection.createStatement();
+            Statement statement = connection.createStatement();
             statement.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static void gamesCounter(){
+        Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
+
+        Connection connection = obj_HighscoresDatabase.getConnection();
+
+        try {
+            String query = "Insert into Highscores (games_played) values ('"+Methods.userName+"')";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
         } catch (Exception e) {
             e.printStackTrace();
         }

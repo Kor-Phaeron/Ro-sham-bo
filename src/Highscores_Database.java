@@ -23,10 +23,6 @@ public class Highscores_Database {
             connection = DriverManager
                     .getConnection("jdbc:postgresql://"+ host + ":" + port + "/" + db_name,
                             user, pwd);
-//            if (connection != null) {
-//                System.out.println("Connection established!");
-//            }
-//            else System.out.println("Connection failed!");
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());

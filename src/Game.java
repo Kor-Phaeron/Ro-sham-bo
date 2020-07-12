@@ -101,6 +101,7 @@ public class Game {
                     }
                     if (Methods.winsPlayer == Methods.winsCount) {
                         Methods.colorGreen(Methods.userName +", you totally rocks!");
+
                         System.out.println();
                     } else if (Methods.winsComputer == Methods.winsCount) {
                         Methods.colorRed(Methods.userName + " you're such a, looser...");
