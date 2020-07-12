@@ -63,17 +63,81 @@ public class Methods {
         }
     }
 
+    public static void gamesCounterSet(){
+        Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
+
+        Connection connection = obj_HighscoresDatabase.getConnection();
+
+        try {
+            String query = "UPDATE Highscores" +
+                    " SET games_played = 0, wins = 0, looses = 0" +
+                    " WHERE name = '"+Methods.userName+"'";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void gamesCounter(){
         Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
 
         Connection connection = obj_HighscoresDatabase.getConnection();
 
         try {
-            String query = "Insert into Highscores (games_played) values ('"+Methods.userName+"')";
+            String query = "UPDATE Highscores" +
+                    " SET games_played = games_played+1" +
+                    " WHERE name = '"+Methods.userName+"'";
             Statement statement = connection.createStatement();
             statement.executeUpdate(query);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void winsCounter(){
+        Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
+
+        Connection connection = obj_HighscoresDatabase.getConnection();
+
+        try {
+            String query = "UPDATE Highscores" +
+                    " SET wins = wins+1" +
+                    " WHERE name = '"+Methods.userName+"'";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void loosesCounter(){
+        Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
+
+        Connection connection = obj_HighscoresDatabase.getConnection();
+
+        try {
+            String query = "UPDATE Highscores" +
+                    " SET looses = looses+1" +
+                    " WHERE name = '"+Methods.userName+"'";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void showHighscores(){
+            Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
+
+            Connection connection = obj_HighscoresDatabase.getConnection();
+
+            try {
+                String query = "SHOW ALL";
+                Statement statement = connection.createStatement();
+                statement.executeUpdate(query);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 }

@@ -50,6 +50,7 @@ class Menus {
         System.out.println();
         System.out.println("1 - Change player's name.");
         System.out.println("2 - Number of wins to end game.");
+        System.out.println("3 - Highscores.");
         System.out.println("0 - Main menu");
         System.out.println();
         choice = Integer.parseInt(GettingInput.getInput(scn1, "Your choice is: "));

@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Game {
 
@@ -6,6 +5,7 @@ public class Game {
 
         Methods.userName();
         Methods.newPlayer(Methods.userName);
+        Methods.gamesCounterSet();
 
         int choiceMainMenu;
         int computerOpponentChoice;
@@ -101,15 +101,17 @@ public class Game {
                     }
                     if (Methods.winsPlayer == Methods.winsCount) {
                         Methods.colorGreen(Methods.userName +", you totally rocks!");
-
+                        Methods.winsCounter();
                         System.out.println();
                     } else if (Methods.winsComputer == Methods.winsCount) {
                         Methods.colorRed(Methods.userName + " you're such a, looser...");
+                        Methods.loosesCounter();
                         System.out.println();
                     }
                     Methods.winsCount = Methods.winsCountReset;
                     Methods.winsPlayer = 0;
                     Methods.winsComputer = 0;
+                    Methods.gamesCounter();
                     Menus.choice = 0;
                     round = 1;
                     break;
@@ -131,10 +133,12 @@ public class Game {
                             case (State.CHANGE_TOTAL_WINS):
                                 Methods.changeTotalWins();
                                 break MainMenu;
+                            case (State.SHOW_HIGHSCORES):
+                                Methods.showHighscores();
                             case (State.SETTINGS_EXIT):
                                 break MainMenu;
                             default:
-                                System.out.println("Please, choose between 1, 2 or 0");
+                                System.out.println("Please, choose between 1, 2, 3 or 0");
                                 System.out.println();
                         }
                     }

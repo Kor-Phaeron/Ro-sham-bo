@@ -16,6 +16,7 @@ class State{
     //SettingsMenu:
     static final int CHANGE_NAME = 1;
     static final int CHANGE_TOTAL_WINS = 2;
+    static final int SHOW_HIGHSCORES = 3;
     static final int SETTINGS_EXIT = 0;
 
     //ColorCodes:
