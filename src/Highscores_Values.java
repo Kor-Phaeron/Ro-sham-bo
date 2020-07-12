@@ -14,13 +14,10 @@ public class Highscores_Values {
         Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
 
         connection = obj_HighscoresDatabase.getConnection();
-        String userName = "Test";
-
-        System.out.println("fasjdvn" + Methods.userName);
 
         try {
 
-            String query = "Insert into Highscores (name, score) values ('"+userName+"',)";
+            String query = "Insert into Highscores (name, score) values ('"+Methods.userName+"',)";
             statement = connection.createStatement();
             statement.executeUpdate(query);
             System.out.println("Values inserted successfully.");

@@ -56,15 +56,13 @@ public class Methods {
         Highscores_Database obj_HighscoresDatabase = new Highscores_Database();
 
         connection = obj_HighscoresDatabase.getConnection();
-        String userName = "Test";
-//        System.out.println("fasdnvasdkv" + "fasndjvnjskd");
+
 
         try {
 
-            String query = "Insert into Highscores (name) values ('zhopa"+name+"zhopa')";
+            String query = "Insert into Highscores (name) values ('"+Methods.userName+"')";
             statement = connection.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Values inserted successfully.");
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -106,7 +106,6 @@ public class Game {
                         Methods.colorRed(Methods.userName + " you're such a, looser...");
                         System.out.println();
                     }
-                    //Highscores_Values.insertName();
                     Methods.winsCount = Methods.winsCountReset;
                     Methods.winsPlayer = 0;
                     Methods.winsComputer = 0;
